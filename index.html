@@ -84,13 +84,48 @@ title: Home
     transform: scale(1.05);
   }
 
-  footer {
-    margin-top: auto;
-    padding: 1rem;
-    font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.social-links a img {
+  height: 20px;
+  width: 20px;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
 
   /* Ensure clickable area covers viewport for animations */
   main {
@@ -110,7 +145,24 @@ title: Home
 </main>
 
 <footer>
-  &copy; 2025 Your Name. Built with Jekyll &ensp;|&ensp; <a href="https://github.com/your-username/your-repo" style="color: white; text-decoration: underline;">GitHub</a>
+  <div class="footer-content">
+    <img src="/assets/images/logo-small.png" alt="Site Logo" class="footer-logo">
+    <span>&copy; 2025 Your Name. Built with Jekyll</span>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/your-profile" aria-label="LinkedIn">
+        <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/your-username" aria-label="GitHub">
+        <img src="/assets/icons/github.svg" alt="GitHub">
+      </a>
+      <a href="https://leetcode.com/your-username" aria-label="LeetCode">
+        <img src="/assets/icons/leetcode.svg" alt="LeetCode">
+      </a>
+      <a href="https://stackoverflow.com/users/your-id" aria-label="Stack Overflow">
+        <img src="/assets/icons/stackoverflow.svg" alt="Stack Overflow">
+      </a>
+    </div>
+  </div>
 </footer>
 
 <script>
