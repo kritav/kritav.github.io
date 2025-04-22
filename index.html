@@ -15,17 +15,25 @@ title: Home
   }
 
   body {
-  background: linear-gradient(
-    -45deg,
-    var(--primary-color) 0%,
-    var(--accent-color) 25%,
-    var(--primary-color) 50%,
-    var(--accent-color) 75%,
-    var(--primary-color) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite, fadeIn 1.2s ease-in-out;
-}
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    background: linear-gradient(
+      -45deg,
+      var(--primary-color) 0%,
+      var(--accent-color) 25%,
+      var(--primary-color) 50%,
+      var(--accent-color) 75%,
+      var(--primary-color) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite, fadeIn 1.2s ease-in-out;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
   @keyframes gradientBG {
     0% { background-position: 0% 50%; }
