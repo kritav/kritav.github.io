@@ -1,6 +1,6 @@
 ---
 layout: default
- title: Home
+title: Home
 ---
 
 <style>
@@ -56,6 +56,17 @@ layout: default
     50% { transform: translateY(-6px); }
   }
 
+  @keyframes gentleLand {
+    from {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(255, 255, 255, 0.15), 0 0 8px rgba(255, 255, 255, 0.05);
+    }
+    to {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+  }
+
   h1 {
     margin-top: 3rem;
     font-size: 3rem;
@@ -84,7 +95,11 @@ layout: default
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    /* Smooth transitions for landing and hover effects */
+    transition:
+      border-color 0.3s,
+      transform 0.6s ease-out,
+      box-shadow 0.6s ease-out;
   }
 
   /* Glint effect */
@@ -116,10 +131,9 @@ layout: default
     transform: translateX(200%);
   }
 
-  /* Return to rest position */
+  /* Landing animation when hover ends */
   .button-grid a:not(:hover) {
-    transform: translateY(0);
-    box-shadow: none;
+    animation: gentleLand 0.6s ease-out forwards;
   }
 
   main {
