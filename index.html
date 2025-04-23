@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+ title: Home
 ---
 
 <style>
@@ -8,7 +8,6 @@ title: Home
     --primary-color: #ff3403; /* bright orange */
     --accent-color: #fe8b02; /* red-orange */
   }
-  
 
   /* Enable smooth scrolling */
   html {
@@ -52,6 +51,11 @@ title: Home
     to { opacity: 0; transform: translateY(10px); }
   }
 
+  @keyframes gentleBounce {
+    0%, 100% { transform: translateY(-3px); }
+    50% { transform: translateY(-6px); }
+  }
+
   h1 {
     margin-top: 3rem;
     font-size: 3rem;
@@ -70,7 +74,6 @@ title: Home
   }
 
   .button-grid a {
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
     background-color: transparent;
@@ -81,85 +84,86 @@ title: Home
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
 
+  /* Glint effect */
+  .button-grid a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.4) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    transition: transform 0.7s ease-in-out;
+    pointer-events: none;
+  }
+
+  /* Hover state: border highlight, glint, bounce, shadow */
   .button-grid a:hover {
     border-color: white;
-    transform: scale(1.05);
+    animation: gentleBounce 1.2s infinite ease-in-out;
+    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.15), 0 0 8px rgba(255, 255, 255, 0.05);
   }
-  
-  .button-grid a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transition: transform 0.7s ease-in-out;
-  pointer-events: none;
-}
 
-.button-grid a:hover::before {
-  transform: translateX(200%);
-}
+  .button-grid a:hover::before {
+    transform: translateX(200%);
+  }
 
-footer {
-  margin-top: auto;
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
-}
+  /* Return to rest position */
+  .button-grid a:not(:hover) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.footer-logo {
-  height: 24px;
-  margin-right: 0.5rem;
-}
-
-.social-links a {
-  display: inline-block;
-  margin-left: 0.5rem;
-  transition: transform 0.2s;
-}
-
-.social-links a img {
-  height: 20px;
-  width: 20px;
-}
-
-.social-links a:hover {
-  transform: scale(1.1);
-}
-
-
-
-
-
-
-
-
-  /* Ensure clickable area covers viewport for animations */
   main {
     flex: 1;
   }
 
   main p {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    height: 24px;
+    margin-right: 0.5rem;
+  }
+
+  .social-links a {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  .social-links a img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.1);
   }
 </style>
 
@@ -187,7 +191,7 @@ footer {
       <a href="https://leetcode.com/kritav" aria-label="LeetCode">
         <img src="/assets/icons/leetcode.svg" alt="LeetCode">
       </a>
-      <a href="https://stackoverflow.com/users/kritav" aria-label="Stack Overflow">
+      <a href="https://stackoverflow.com/users/11866967/kritav" aria-label="Stack Overflow">
         <img src="/assets/icons/stackoverflow.svg" alt="Stack Overflow">
       </a>
     </div>
