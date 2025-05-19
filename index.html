@@ -5,14 +5,11 @@ title: Home
 
 <style>
   :root {
-    --primary-color: #ff3403; /* bright orange */
-    --accent-color: #fe8b02; /* red-orange */
+    --primary-color: #ff3403;
+    --accent-color: #fe8b02;
   }
 
-  /* Enable smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,8 +17,7 @@ title: Home
     padding: 0;
     color: white;
     text-align: center;
-    background: linear-gradient(
-      -45deg,
+    background: linear-gradient(-45deg,
       var(--primary-color) 0%,
       var(--accent-color) 25%,
       var(--primary-color) 50%,
@@ -47,47 +43,33 @@ title: Home
   }
 
   @keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(10px); }
-  }
-
-  @keyframes gentleBounce {
-    0%, 100% { transform: translateY(-3px); }
-    50% { transform: translateY(-6px); }
-  }
-
-  @keyframes gentleLand {
-    from {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 20px rgba(255, 255, 255, 0.15), 0 0 8px rgba(255, 255, 255, 0.05);
-    }
-    to {
-      transform: translateY(0);
-      box-shadow: none;
-    }
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
 
   h1 {
     margin-top: 3rem;
     font-size: 3rem;
-    z-index: 1;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    margin: 0.5rem 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   }
 
   .button-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2rem auto;
     gap: 1rem;
-    padding: 1rem;
+    margin: 2rem auto;
     z-index: 1;
   }
 
   .button-grid a {
     position: relative;
-    overflow: hidden;
-    background-color: transparent;
+    background: transparent;
     color: white;
     text-decoration: none;
     padding: 1rem 2rem;
@@ -95,14 +77,14 @@ title: Home
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    /* Smooth transitions for landing and hover effects */
-    transition:
-      border-color 0.3s,
-      transform 0.6s ease-out,
-      box-shadow 0.6s ease-out;
+    transition: border-color 0.3s;
+    overflow: hidden;
   }
 
-  /* Glint effect */
+  .button-grid a:hover {
+    border-color: white;
+  }
+
   .button-grid a::before {
     content: '';
     position: absolute;
@@ -110,8 +92,7 @@ title: Home
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
+    background: linear-gradient(120deg,
       rgba(255,255,255,0) 0%,
       rgba(255,255,255,0.4) 50%,
       rgba(255,255,255,0) 100%
@@ -120,36 +101,15 @@ title: Home
     pointer-events: none;
   }
 
-  /* Hover state: border highlight, glint, bounce, shadow */
-  .button-grid a:hover {
-    border-color: white;
-    animation: gentleBounce 1.2s infinite ease-in-out;
-    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.15), 0 0 8px rgba(255, 255, 255, 0.05);
-  }
-
   .button-grid a:hover::before {
     transform: translateX(200%);
-  }
-
-  /* Landing animation when hover ends */
-  .button-grid a:not(:hover) {
-    animation: gentleLand 0.6s ease-out forwards;
-  }
-
-  main {
-    flex: 1;
-  }
-
-  main p {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   }
 
   footer {
     margin-top: auto;
     padding: 1rem;
-    font-size: 0.9rem;
     background-color: rgba(0, 0, 0, 0.2);
-    color: white;
+    font-size: 0.9rem;
   }
 
   .footer-content {
@@ -160,20 +120,9 @@ title: Home
     margin: 0 auto;
   }
 
-  .footer-logo {
-    height: 24px;
-    margin-right: 0.5rem;
-  }
-
   .social-links a {
-    display: inline-block;
     margin-left: 0.5rem;
     transition: transform 0.2s;
-  }
-
-  .social-links a img {
-    height: 20px;
-    width: 20px;
   }
 
   .social-links a:hover {
@@ -186,9 +135,9 @@ title: Home
   <p>Explore my work, projects, and games using the links below!</p>
 
   <div class="button-grid">
-    <a href="/about">About Me</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/games">Games</a>
+    <a href="/about.html">About Me</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/games.html">Games</a>
   </div>
 </main>
 
@@ -197,29 +146,27 @@ title: Home
     <span>&copy; 2025 kritav</span>
     <div class="social-links">
       <a href="https://linkedin.com/in/kritav" aria-label="LinkedIn">
-        <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+        <img src="/assets/icons/linkedin.svg" alt="LinkedIn" height="20">
       </a>
       <a href="https://github.com/kritav" aria-label="GitHub">
-        <img src="/assets/icons/github.svg" alt="GitHub">
+        <img src="/assets/icons/github.svg" alt="GitHub" height="20">
       </a>
       <a href="https://leetcode.com/kritav" aria-label="LeetCode">
-        <img src="/assets/icons/leetcode.svg" alt="LeetCode">
+        <img src="/assets/icons/leetcode.svg" alt="LeetCode" height="20">
       </a>
       <a href="https://stackoverflow.com/users/11866967/kritav" aria-label="Stack Overflow">
-        <img src="/assets/icons/stackoverflow.svg" alt="Stack Overflow">
+        <img src="/assets/icons/stackoverflow.svg" alt="Stack Overflow" height="20">
       </a>
     </div>
   </div>
 </footer>
 
 <script>
-  document.querySelectorAll('a').forEach(link => {
+  document.querySelectorAll('.button-grid a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       document.body.style.animation = 'fadeOut 0.5s ease-in-out';
-      setTimeout(() => {
-        window.location.href = link.href;
-      }, 400);
+      setTimeout(() => window.location.href = link.href, 400);
     });
   });
 </script>
